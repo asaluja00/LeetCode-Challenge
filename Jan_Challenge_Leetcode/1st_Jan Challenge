@@ -19,13 +19,12 @@ public:
         map<char,string> mp;
         if(words.size()!=pattern.length()) return false;
         for(int i=0;i<pattern.length();i++){
-            if(mp.find(pattern[i])!=mp.end()&&mp[pattern[i]]!=words[i]){ cout<<"checl1"; return false;}
-            if(mp.find(pattern[i])!=mp.end()&&mp[pattern[i]]==words[i]){cout<< "con"; continue;}
+            if(mp.find(pattern[i])!=mp.end()&&mp[pattern[i]]!=words[i]){ return false;}
+            if(mp.find(pattern[i])!=mp.end()&&mp[pattern[i]]==words[i]){ continue;}
             for(auto it:mp){
                 if(it.second == words[i]) return false;
             }
-            mp[pattern[i]]=words[i];  
-            cout<<"pushed";         
+            mp[pattern[i]]=words[i];     
         }
         return true;
     }
