@@ -24,6 +24,7 @@ public:
             for(auto it:mp){
                 if(it.second == words[i]) return false;
             }
+            
             mp[pattern[i]]=words[i];     
         }
         return true;
