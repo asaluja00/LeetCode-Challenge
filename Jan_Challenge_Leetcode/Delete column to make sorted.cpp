@@ -18,10 +18,3 @@ public:
 };
 
 
-
-
-int solve(){
-    int n;
-    cin>>n;;
-    return (1/6)*(n)*(n+1)*(2n+1);
-}
