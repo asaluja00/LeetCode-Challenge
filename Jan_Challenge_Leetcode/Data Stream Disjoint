@@ -1,0 +1,36 @@
+class SummaryRanges {
+public:
+    set<int> a;
+    SummaryRanges() {
+        
+    }
+    
+    void addNum(int value) {
+        a.insert(value);
+    }
+    
+    vector<vector<int>> getIntervals() {
+        vector<vector<int>> ans;
+        int beg = *a.begin();
+        int end = *a.begin();  
+        for(auto it=++a.begin()  ;it != a.end();it++){
+            int temp = *it;
+            if(temp-end==1){
+                end=temp;
+            }
+            else{
+                ans.push_back({beg, end});
+                beg=end=temp;
+            }   
+        }
+        ans.push_back({beg , end});
+        return ans;
+    }
+};
+
+/**
+ * Your SummaryRanges object will be instantiated and called as such:
+ * SummaryRanges* obj = new SummaryRanges();
+ * obj->addNum(value);
+ * vector<vector<int>> param_2 = obj->getIntervals();
+ */
